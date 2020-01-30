@@ -1,0 +1,29 @@
+name: maestro
+author: Piotr Majkrzak <piotr@majkrzak.dev>
+license: ISC
+github: majkrzak/maestro
+
+dependencies:
+- base
+- net-mqtt
+- network-uri
+- text
+- aeson
+- bytestring
+- unordered-containers
+
+default-extensions:
+- OverloadedStrings
+- DeriveGeneric
+- DeriveAnyClass
+- FlexibleContexts
+- FlexibleInstances
+- ConstraintKinds
+- UndecidableInstances
+- DefaultSignatures
+- DeriveDataTypeable
+- TypeOperators
+
+library:
+  source-dirs: src
+
