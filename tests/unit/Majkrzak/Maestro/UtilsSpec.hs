@@ -12,7 +12,7 @@ data T4 = T4 { t4a::Int,  t4b::String } deriving Generic
 data T5 = T5a | T5b Int String | T5c { t5a::Int,  t5b::String } deriving Generic
 
 spec :: Spec
-spec = describe "Majkrzak.Maestro.Utils name" $ do
+spec = describe "name" $ do
   it "names unary types" $ do
     (name T1) `shouldBe` "T1"
   it "names simple sum types" $ do

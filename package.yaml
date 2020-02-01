@@ -29,6 +29,9 @@ library:
 
 tests:
   unit:
-    defaults: hspec/hspec@master
+    main: Spec.hs
     source-dirs: tests/unit
-    dependencies: maestro
+    dependencies:
+    - maestro
+    - hspec
+
