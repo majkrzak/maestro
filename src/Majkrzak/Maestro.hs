@@ -6,6 +6,7 @@ module Majkrzak.Maestro
 ) where
 
 import Majkrzak.Maestro.Utils
+import Majkrzak.Maestro.Types
 
 import Data.ByteString.Lazy (ByteString)
 import Data.Text (Text, pack)
@@ -23,20 +24,6 @@ aesonOptions = defaultOptions
  , allNullaryToStringTag = False
  }
 
-class Event a where
-  load :: MonadFail m => Text -> ByteString -> m a
-  default load ::
-    ( MonadFail m
-    , Generic a
-    , GFromJSON Zero (Rep a)
-    ) => Text -> ByteString -> m a
-  load t x =
-    case parse
-      (genericParseJSON aesonOptions)
-      (object [t .= fromMaybe emptyArray (decode x)])
-    of
-      Error e -> fail e
-      Success s -> return s
 
 class Action a where
   dump :: a -> (Text, ByteString)
