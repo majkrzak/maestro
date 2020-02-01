@@ -1,0 +1,5 @@
+resolver: lts-14.21
+packages:
+- .
+extra-deps:
+- net-mqtt-0.6.2.2@sha256:9fd05bb86b20d35826a1d44ed6f1aada662f9e5ae5187a43a2b74a4ac00801df

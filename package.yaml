@@ -27,3 +27,8 @@ default-extensions:
 library:
   source-dirs: src
 
+tests:
+  unit:
+    defaults: hspec/hspec@master
+    source-dirs: tests/unit
+    dependencies: maestro
