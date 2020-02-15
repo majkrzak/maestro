@@ -1,16 +1,33 @@
-module Majkrzak.Maestro 
-  (Event
+module Majkrzak.Maestro
+  ( Event
   , load
   , TopicMapping(TopicMapping)
   , (/-/)
-) where
+  )
+where
 
 import Majkrzak.Maestro.Utils
 import Majkrzak.Maestro.Types
 
 import Data.ByteString.Lazy (ByteString)
 import Data.Text (Text, pack)
-import Data.Aeson.Types (GFromJSON, GToJSON, Zero, sumEncoding, allNullaryToStringTag, object, (.=), emptyArray, genericParseJSON, defaultOptions, SumEncoding(ObjectWithSingleField), parse, Result(Error, Success), genericToJSON, Value(Object))
+import Data.Aeson.Types
+  ( GFromJSON
+  , GToJSON
+  , Zero
+  , sumEncoding
+  , allNullaryToStringTag
+  , object
+  , (.=)
+  , emptyArray
+  , genericParseJSON
+  , defaultOptions
+  , SumEncoding(ObjectWithSingleField)
+  , parse
+  , Result(Error, Success)
+  , genericToJSON
+  , Value(Object)
+  )
 import GHC.Generics
 import Data.Maybe (fromMaybe)
 import Data.Aeson (decode, encode)
@@ -20,9 +37,9 @@ import Data.Data (toConstr, Data)
 
 
 aesonOptions = defaultOptions
- { sumEncoding = ObjectWithSingleField
- , allNullaryToStringTag = False
- }
+  { sumEncoding           = ObjectWithSingleField
+  , allNullaryToStringTag = False
+  }
 
 
 class Action a where

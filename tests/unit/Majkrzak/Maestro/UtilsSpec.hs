@@ -1,4 +1,7 @@
-module Majkrzak.Maestro.UtilsSpec (spec) where
+module Majkrzak.Maestro.UtilsSpec
+  ( spec
+  )
+where
 
 import Test.Hspec
 import Majkrzak.Maestro.Utils

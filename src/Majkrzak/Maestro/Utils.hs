@@ -1,6 +1,11 @@
-module Majkrzak.Maestro.Utils (RName, name) where
+module Majkrzak.Maestro.Utils
+  ( RName
+  , name
+  )
+where
 
 import GHC.Generics
+
 
 class GName f where
   name' :: f p -> String
