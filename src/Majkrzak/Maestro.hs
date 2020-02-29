@@ -41,19 +41,6 @@ aesonOptions = defaultOptions
   , allNullaryToStringTag = False
   }
 
-
-class Action a where
-  dump :: a -> (Text, ByteString)
-  default dump ::
-   ( Generic a
-   , GToJSON Zero (Rep a)
-   ) => a -> (Text, ByteString)
-  dump a = (tmp1, encode tmp2)
-    where
-      (tmp1, tmp2) = head $ toList tmp3
-      (Object tmp3) = genericToJSON defaultOptions a
-
-
 data TopicMapping = TopicMapping Text Text
 
 (/-/) :: RName a => Text -> a -> TopicMapping

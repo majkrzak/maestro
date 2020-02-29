@@ -1,6 +1,8 @@
 module Majkrzak.Maestro.Types
   ( Event
   , load
+  , Action
+  , dump
   )
 where
 
@@ -21,15 +23,18 @@ import Data.Aeson.Types
   , allNullaryToStringTag
   , SumEncoding(ObjectWithSingleField)
   , defaultOptions
-  , Value(String)
+  , Value(String, Object)
   , fieldLabelModifier
   , constructorTagModifier
   , omitNothingFields
   , unwrapUnaryRecords
   , tagSingleConstructors
+  , GToJSON
+  , genericToJSON
   )
 import Data.Maybe (fromMaybe)
-import Data.Aeson (decode)
+import Data.Aeson (decode, encode)
+import Data.HashMap.Strict (toList)
 
 
 aesonOptions = defaultOptions
@@ -61,3 +66,14 @@ class Event a where
         of
           Error e -> fail e
           Success s -> return s
+
+class Action a where
+  dump :: a -> (Text, ByteString)
+  default dump ::
+   ( Generic a
+   , GToJSON Zero (Rep a)
+   ) => a -> (Text, ByteString)
+  dump a = (tmp1, encode tmp2)
+    where
+      (tmp1, tmp2) = head $ toList tmp3
+      (Object tmp3) = genericToJSON aesonOptions a
