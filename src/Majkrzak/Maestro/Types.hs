@@ -6,7 +6,6 @@ module Majkrzak.Maestro.Types
   )
 where
 
-import Control.Monad.Fail (MonadFail)
 import Data.Text (Text)
 import Data.ByteString.Lazy (ByteString)
 import GHC.Generics (Generic, Rep)

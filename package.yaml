@@ -5,7 +5,6 @@ github: majkrzak/maestro
 
 dependencies:
 - base
-- net-mqtt
 - network-uri
 - text
 - aeson
@@ -25,8 +24,8 @@ default-extensions:
 - TypeOperators
 
 ghc-options:
-  - -Wall
-  - -O2
+- -Wall
+- -O2
 
 library:
   source-dirs: src
