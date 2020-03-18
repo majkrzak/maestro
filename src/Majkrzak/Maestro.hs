@@ -1,6 +1,9 @@
 module Majkrzak.Maestro
-  ( Event
+  ( Application(Application)
+  , Event
   , load
+  , Action
+  , dump
   , TopicMapping(TopicMapping)
   , (/-/)
   )
@@ -9,39 +12,14 @@ where
 import Majkrzak.Maestro.Utils
 import Majkrzak.Maestro.Types
 
-import Data.ByteString.Lazy (ByteString)
 import Data.Text (Text, pack)
-import Data.Aeson.Types
-  ( GFromJSON
-  , GToJSON
-  , Zero
-  , sumEncoding
-  , allNullaryToStringTag
-  , object
-  , (.=)
-  , emptyArray
-  , genericParseJSON
-  , defaultOptions
-  , SumEncoding(ObjectWithSingleField)
-  , parse
-  , Result(Error, Success)
-  , genericToJSON
-  , Value(Object)
-  )
-import GHC.Generics
-import Data.Maybe (fromMaybe)
-import Data.Aeson (decode, encode)
-import Control.Monad.Fail (MonadFail)
-import Data.HashMap.Strict (toList)
-import Data.Data (toConstr, Data)
 
-
-aesonOptions = defaultOptions
-  { sumEncoding           = ObjectWithSingleField
-  , allNullaryToStringTag = False
-  }
 
 data TopicMapping = TopicMapping Text Text
 
 (/-/) :: RName a => Text -> a -> TopicMapping
 l /-/ r = TopicMapping l $ pack $ name r
+
+data Application = Application
+  {
+  }

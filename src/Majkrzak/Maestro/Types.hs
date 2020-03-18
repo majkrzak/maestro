@@ -23,7 +23,7 @@ import Data.Aeson.Types
   , allNullaryToStringTag
   , SumEncoding(ObjectWithSingleField)
   , defaultOptions
-  , Value(String, Object)
+  , Value(Object)
   , fieldLabelModifier
   , constructorTagModifier
   , omitNothingFields
@@ -31,12 +31,13 @@ import Data.Aeson.Types
   , tagSingleConstructors
   , GToJSON
   , genericToJSON
+  , Options
   )
 import Data.Maybe (fromMaybe)
 import Data.Aeson (decode, encode)
 import Data.HashMap.Strict (toList)
 
-
+aesonOptions :: Options
 aesonOptions = defaultOptions
   { fieldLabelModifier     = id
   , constructorTagModifier = id

@@ -24,6 +24,10 @@ default-extensions:
 - DeriveDataTypeable
 - TypeOperators
 
+ghc-options:
+  - -Wall
+  - -O2
+
 library:
   source-dirs: src
 
