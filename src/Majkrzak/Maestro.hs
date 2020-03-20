@@ -14,6 +14,7 @@ where
 import Majkrzak.Maestro.Utils
 import Majkrzak.Maestro.Types
 
+import Prelude (Bool(True, False), IO, ($), (.), filter, map)
 import Data.Text (Text, pack)
 import Network.MQTT.Client
   ( connectURI
@@ -27,7 +28,7 @@ import Network.MQTT.Client
   )
 import Network.URI (URI)
 import Control.Concurrent.STM (atomically, newTVar, readTVar, writeTVar)
-import Control.Monad (void)
+import Control.Monad (void, mapM_, return)
 
 
 data TopicMapping = TopicMapping Bool Text Text

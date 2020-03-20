@@ -4,6 +4,7 @@ module Majkrzak.Maestro.Utils
   )
 where
 
+import Prelude (String, undefined, (.))
 import GHC.Generics
 
 

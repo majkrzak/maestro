@@ -6,6 +6,7 @@ module Majkrzak.Maestro.Types
   )
 where
 
+import Prelude (head, ($), id, Bool(True, False))
 import Data.Text (Text)
 import Data.ByteString.Lazy (ByteString)
 import GHC.Generics (Generic, Rep)
@@ -35,6 +36,7 @@ import Data.Aeson.Types
 import Data.Maybe (fromMaybe)
 import Data.Aeson (decode, encode)
 import Data.HashMap.Strict (toList)
+import Control.Monad (MonadFail, return, fail)
 
 aesonOptions :: Options
 aesonOptions = defaultOptions
