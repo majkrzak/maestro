@@ -1,0 +1,5 @@
+resolver: lts-15.4
+extra-deps:
+- net-mqtt-0.6.2.3@sha256:3c2201ad7021a07bccd8bb0c64a8450451085ddd03178f2a916e7951d4e7260a,4131
+packages:
+- .

@@ -10,6 +10,8 @@ dependencies:
 - aeson
 - bytestring
 - unordered-containers
+- net-mqtt
+- stm
 
 default-extensions:
 - OverloadedStrings
@@ -22,6 +24,8 @@ default-extensions:
 - DefaultSignatures
 - DeriveDataTypeable
 - TypeOperators
+- RankNTypes
+- RecordWildCards
 
 ghc-options:
 - -Wall
